@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns:th="http//www.thymeleaf.org" lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">	
+		<title>Inicio</title>
+		<link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+	</head>
+	<body>
+	    <!-- Encabezado -->
+	    <header class="bg-light text-dark py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col">
+                    <h1 class="display-4">Facultad de Ingeniería</h1>
+                    <p class="lead">¡Educando a los ingenieros del futuro!</p>
+                </div>
+                <div class="col text-end">
+                    <img th:src="@{/images/logounju.png}" alt="img-fluid" width="150">
+                </div>
+            </div>
+        </div>
+
+    	<!-- Barra de Navegación -->
+	    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+	        <div class="container">
+	            <a class="navbar-brand" href="#">UNJu - Ingeniería</a>
+	            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+	                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+	                <span class="navbar-toggler-icon"></span>
+	            </button>
+	            <div class="collapse navbar-collapse" id="navbarNav">
+	                <ul class="navbar-nav ms-auto">
+	                    <li class="nav-item">
+	                        <a class="nav-link active" href="#">Inicio</a>
+	                    </li>
+	                    <li class="nav-item">
+	                        <a class="nav-link" href="#">Acerca de</a>
+	                    </li>
+	                    <li class="nav-item">
+	                        <a class="nav-link" href="#">Carreras</a>
+	                    </li>
+	                    <li class="nav-item">
+	                        <a class="nav-link" href="#">Noticias</a>
+	                    </li>
+	                    <li class="nav-item">
+	                        <a class="nav-link" href="#">Contacto</a>
+	                    </li>
+	                </ul>
+	            </div>
+	        </div>
+	    </nav>
+	    </header>
+
+	    <!-- Contenido Principal -->
+	    <main class="container mt-4">
+	        <div class="row">
+	            <div class="col-md-8">
+	                <section>
+	                    <h2>Sobre Nosotros</h2>
+	                    <p>La Universidad Nacional de Jujuy, establecida el 25 
+	                    de mayo de 1972, inicialmente como una institución provincial
+	                     y luego como una universidad nacional en el año siguiente, 
+	                     tuvo su origen con el propósito de fortalecer las actividades 
+	                     de explotación e industrialización de los recursos naturales 
+	                     de la región de Jujuy, Argentina.</p>
+	                </section>
+	                <section>
+	                    <h2>Noticias Recientes</h2>
+	                    <h3>¡SE VIENEN LAS JORNADAS SIG-IDE DE IDERA 2024!</h3>
+	                    <img th:src="@{/images/jornadas-sig-ide.jpeg}" alt="img-fluid" width="200">
+	                    <p>Mientras nos preparamos para las próximas XVIII Jornadas IDERA en Santiago del Estero,
+	                     los invitamos a participar de las “Jornadas SIG-IDE 2024",
+	                     organizadas por el Grupo Técnico de Trabajo “Capacitación” de IDERA.
+						 Les compartimos el cronograma de actividades de las “Jornadas SIG-IDE 2024”
+						 que se desarrollarán de manera virtual y gratuita los días miércoles 5, jueves 6 y viernes 7
+						 de junio de 8 a 13 horas.
+                         Podés inscribirte hasta el martes 4 de junio en el siguiente 
+                         link: <a href="https://forms.gle/2HhUzUYT23qEZuVw9">https://forms.gle/2HhUzUYT23qEZuVw9"</a>
+			             Una vez inscriptos, enviaremos por correo el link de acceso a la transmisión por el canal 
+			             de Youtube de IDERA.
+                         ¡Los esperamos a todos para seguir compartiendo y ampliando conocimientos!</p>
+	                    <!-- Aquí puedes agregar noticias recientes usando componentes de Bootstrap -->
+	                </section>
+	            </div>
+	            <div class="col-md-4">
+	                <aside>
+	                    <h3>Menú</h3>
+	                    <ul class="list-group">
+	                        <li class="list-group-item"><a href="https://www.fi.unju.edu.ar/alumnos-noticias/4397-biblioteca-
+	                        prestamos-de-libros-para-las-vacaciones.html">Biblioteca</a></li>
+	                        <li class="list-group-item"><a href="https://www.fi.unju.edu.ar/secretarias/sec-academica/calendario
+	                        -academico.html">Calendario Académico</a></li>
+	                    </ul>
+	                </aside>
+	            </div>
+	        </div>
+	    </main>
+
+    	<!-- Pie de Página -->
+	    <footer class="bg-light text-dark py-4">
+	        <div class="container">
+	            <div class="row">
+	                <div class="col-md-6">
+	                    <h4>Contacto</h4>
+	                    <p>Dirección: Ítalo Palanca N°10, San Salvador de Jujuy</p>
+	                    <p>TELÉFONO: 388-422-1576</p>
+						<p>HORARIO: 14:30 a 19:30 hs</p>
+	                    <p>Email: info@unju.edu.ar</p>
+	                </div>
+	                <div class="col-md-6 text-end">
+	                    <h4>Redes Sociales</h4>
+	                    <a href="https://www.facebook.com/fiunju/">Facbook</a>
+	                    <a href="https://www.youtube.com/channel/UCgS9XJlKKSYI1oJ4lIOo77A">Youtube</a>
+	                    <a href="https://www.linkedin.com/school/facultad-de-ingenieria-unju">Linkedin</a>
+	                    <a href="https://www.instagram.com/fiunju/">Instagram</a>
+	                    <!-- Agrega enlaces a las redes sociales -->
+	                </div>
+	            </div>
+	        </div>
+	    </footer>
+		<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+	</body>
+</html>
