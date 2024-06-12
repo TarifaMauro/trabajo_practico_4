@@ -20,8 +20,7 @@
                 </div>
             </div>
         </div>
-
-    	<!-- Barra de Navegación -->
+	<!-- Barra de Navegación -->
 	    <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	        <div class="container">
 	            <a class="navbar-brand" href="#">UNJu - Ingenieria</a>
@@ -32,19 +31,19 @@
 	            <div class="collapse navbar-collapse" id="navbarNav">
 	                <ul class="navbar-nav ms-auto">
 	                    <li class="nav-item">
-	                        <a class="nav-link active" href="#">Inicio</a>
+	                        <a class="nav-link active" data-th-href="@{/inicio}">Inicio</a>
 	                    </li>
 	                    <li class="nav-item">
-	                        <a class="nav-link" href="#">Acerca de</a>
+	                        <a class="nav-link" href="#acerca">Acerca de</a>
 	                    </li>
 	                    <li class="nav-item">
-	                        <a class="nav-link" href="#">Carreras</a>
+	                        <a class="nav-link" data-th-href="@{/carrera/listado}">Carreras</a>
 	                    </li>
 	                    <li class="nav-item">
-	                        <a class="nav-link" href="#">Noticias</a>
+	                        <a class="nav-link" href="#noticias">Noticias</a>
 	                    </li>
 	                    <li class="nav-item">
-	                        <a class="nav-link" href="#">Contacto</a>
+	                        <a class="nav-link" href="#contacto">Contacto</a>
 	                    </li>
 	                </ul>
 	            </div>
@@ -56,7 +55,7 @@
 	    <main class="container mt-4">
 	        <div class="row">
 	            <div class="col-md-8">
-	                <section>
+	                <section id="acerca">
 	                    <h2>Sobre Nosotros</h2>
 	                    <p>La Universidad Nacional de Jujuy, establecida el 25 
 	                    de mayo de 1972, inicialmente como una institución provincial
@@ -65,7 +64,7 @@
 	                     de explotación e industrialización de los recursos naturales 
 	                     de la región de Jujuy, Argentina.</p>
 	                </section>
-	                <section>
+	                <section id="noticias">
 	                    <h2>Noticias Recientes</h2>
 	                    <h3>¡SE VIENEN LAS JORNADAS SIG-IDE DE IDERA 2024!</h3>
 	                    <img th:src="@{/images/jornadas-sig-ide.jpeg}" alt="img-fluid" width="200">
@@ -98,7 +97,7 @@
 	    </main>
 
     	<!-- Pie de Página -->
-	    <footer class="bg-light text-dark py-4">
+	    <footer class="bg-light text-dark py-4" id="contacto">
 	        <div class="container">
 	            <div class="row">
 	                <div class="col-md-6">

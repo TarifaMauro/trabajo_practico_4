@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http//thymeleaf.org" lang="es">
+	<head data-th-replace="~{/layouts/header :: head}"></head>
+	<body>		
+		<div class="container-fluid">
+			<header data-th-replace="~{/layouts/header :: header}"></header>
+			
+			<div class="row">
+				<div class="col col -sm-12 fondo-form- p-5">
+					<div class="row mb-5">
+						<!-- <div th:if="${exito}" class="alert alert-success alert-dimissible fade show" role="alert">
+							<strong data-th-text="${mensaje}"></strong>
+							<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+						</div>
+						<div th:if="${!exito && mensaje != ''}" class="alert alert-danger alert-dimissible fade show" role="alert">
+							<strong data-th-text="${mensaje}"></strong>
+							<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+						</div> -->
+						<div class="d-grid gap-2 d-md-flex justify-content md-end mb-2">
+							<a class="btn btn-primary" data-th-href="@{/docente/nuevo}" role="button">Nuevo Docente</a>
+						</div>
+						<table class="table table-striped table-hover">
+							<thead>
+							    <tr>
+							      <th scope="col">Legajo</th>
+							      <th scope="col">Nombre</th>
+							      <th scope="col">Apellido</th>
+							      <th scope="col">Correo Electronico</th>
+							      <th scope="col">Telefono</th>
+							    </tr>
+							</thead>
+							<tbody>
+							    <tr data-th-each="doc: ${docentes}">
+							      <td data-th-text="${doc.legajo}"></td>
+							      <td data-th-text="${doc.nombre}"></td>
+							      <td data-th-text="${doc.apellido}"></td>
+							      <td data-th-text="${doc.email}" ></td>
+							      <td data-th-text="${doc.telefono}" ></td>
+							      <td>
+							      	<a class="btn btn-warning" data-th-href="@{/docente/modificar/}+${doc.legajo}" role="button">Editar</a>
+							      	<button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"
+							      		th:data-legajoDoc="${doc.legajo}">Eliminar</button>
+							      </td>
+							    </tr>
+							 </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		<footer data-th-replace="~{/layouts/footer :: footer}"></footer>	
+		</div>
+		<!-- Modal -->
+		<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelleby="deleteModallabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-headder">
+						<h5 class ="modal-title" id="deleteModallabel" >Confirmar Eliminación</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						¿Estás seguro de que desea eliminar este alumno?
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+						<form th:action="@{/docente/eliminar/{legajoDoc}(legajoDoc=${selectedLegajoDoc})}" method="get">
+    						<button type="submit" class="btn btn-danger">Eliminar</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script>
+			document.addEventListener('DOMContentLoaded', function() {
+				var deleteModal = document.getElementById('deleteModal');
+				deleteModal.addEventListener('show.bs.modal', function (event) {
+					var button = event.relatedTarget;
+					var legajoDoc = button.getAttribute('data-legajodoc');
+					var form = deleteModal.querySelector('form');
+					form.setAttribute('action', '/docente/eliminar/' + legajoDoc);
+					});
+				});
+		</script>
+			
+		<script type="text/javascript" data-th-src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+	</body>
+</html>
