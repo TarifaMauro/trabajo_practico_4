@@ -27,8 +27,8 @@ public class CollectionsCarrera {
 	}
 	//Agrega un objeto Carrera al arraylist de carrera
 	
-	public static void agregarCarrera(Carrera carrera) {
-		carreras.add(carrera);
+	public static boolean agregarCarrera(Carrera carrera) {
+		return carreras.add(carrera) ? true : false;
 	}
 	
 	//elimina un objeto carrera del arraylist de carrera
@@ -44,17 +44,25 @@ public class CollectionsCarrera {
 	
 	//modifica un objeto carrera con los nuevos valores enviados
 	
-	public static void modificarCarrera(Carrera carrera) {
-		for( Carrera carre : carreras) {
-			if( carre.getCodigo() == carrera.getCodigo() ) {
-				carre.setNombre(carrera.getNombre());
-				carre.setCantidadAnios(carrera.getCantidadAnios());
-				carre.setEstado(carrera.isEstado());
+	public static void modificarCarrera(Carrera carrera) throws Exception {
+		boolean encontrado = false;
+		try {
+			for( Carrera carre : carreras) {
+				if( carre.getCodigo() == carrera.getCodigo() ) {
+					carre.setNombre(carrera.getNombre());
+					carre.setCantidadAnios(carrera.getCantidadAnios());
+					carre.setEstado(carrera.isEstado());
+					encontrado = true;
+				}
 			}
-			else {
-				System.out.println("No es posible encontrar el código de la carrera. ");
+			if(!encontrado) {
+				throw new Exception ("La carrera con codigo " + carrera.getCodigo() + " no existe");
 			}
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+			throw e;
 		}
+			
 	}
 	
 	
@@ -69,7 +77,4 @@ public class CollectionsCarrera {
 			return null;
 		}
 	}
-	
-	
-
 }
