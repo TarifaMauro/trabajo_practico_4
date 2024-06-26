@@ -62,5 +62,10 @@ public class Docente {
 		this.telefono = telefono;
 	}
 	
+	@Override
+	public String toString() {
+		return "Docente [legajo=" + legajo + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email
+				+ ", telefono=" + telefono + "]";
+	}
 	
 }
