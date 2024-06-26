@@ -32,7 +32,7 @@ public class CollectionsAlumno {
 		return alumnos.add(alumno) ? true : false;
 	}
 	
-	public static void eliminarAlumno(int luAlumno) {
+	public static void eliminarAlumno(String luAlumno) {
 		Iterator<Alumno> iterator = alumnos.iterator();
 		while( iterator.hasNext() ) {
 			if( iterator.next().getLu().equals(luAlumno) ) {
