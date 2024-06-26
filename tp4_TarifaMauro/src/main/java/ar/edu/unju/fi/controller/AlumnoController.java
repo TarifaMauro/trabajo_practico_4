@@ -24,14 +24,17 @@ public class AlumnoController {
 	public String getAlumnoPage(Model model) {
 		model.addAttribute("alumnos", CollectionsAlumno.getAlumnos());
 		model.addAttribute("titulo", "Alumnos");
+		model.addAttribute("exito", false);
+		model.addAttribute("mensaje", "");
 		return "alumnos";
 	}
 	
 	@GetMapping("/nuevo")
 	public String getAlumnoNuevoPage(Model model) {
+		boolean edicion = false;
 		model.addAttribute("alumno", alumno);
 		model.addAttribute("titulo", "Nuevo Alumno");
-		model.addAttribute("edicion", false);
+		model.addAttribute("edicion", edicion);
 		return "alumno";
 	}
 	
@@ -53,7 +56,7 @@ public class AlumnoController {
 	}
 	
 	@GetMapping("/modificar/{lu}")
-	public String getModificarAlumnoPage(Model model, @PathVariable(value="lu") int lu) {
+	public String getModificarAlumnoPage(Model model, @PathVariable(value="lu") String lu) {
 		Alumno alumnoEncontrado= new Alumno();
 		boolean edicion = true;
 		alumnoEncontrado = CollectionsAlumno.buscarAlumno(lu);
@@ -87,7 +90,7 @@ public class AlumnoController {
 	}
 	
 	@GetMapping("/eliminar/{lu}")
-	public String eliminarAlumno(@PathVariable(value="lu") int lu) {
+	public String eliminarAlumno(@PathVariable(value="lu") String lu) {
 		CollectionsAlumno.eliminarAlumno(lu);
 		return "redirect:/alumno/listado";
 	}
