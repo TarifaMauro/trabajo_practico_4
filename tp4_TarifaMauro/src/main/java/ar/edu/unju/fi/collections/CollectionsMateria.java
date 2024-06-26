@@ -7,6 +7,9 @@ import java.util.Optional;
 import java.util.function.Predicate;
 
 import org.springframework.stereotype.Component;
+
+import ar.edu.unju.fi.model.Carrera;
+import ar.edu.unju.fi.model.Docente;
 import ar.edu.unju.fi.model.Materia;
 
 
@@ -17,10 +20,19 @@ public class CollectionsMateria {
 	
 	public static List<Materia> getMaterias(){
 		if( materias.isEmpty() ) {
-			materias.add(new Materia(2025, "Programacion Visual", "Segundo", (byte)12, "Virtual",null , null ));
-			materias.add(new Materia(2032, "Programacion Estructurada", "Primero", (byte)14, "Virtual",null , null ));
-			materias.add(new Materia(2045, "Algebra I", "Segundo", (byte)15, "Virtual/Presencial",null , null ));
-			materias.add(new Materia(2012, "LSO II", "Segundo", (byte)10, "Virtual",null , null ));
+			Docente docente = CollectionsDocente.buscarDocente(2020);
+			Carrera carrera = CollectionsCarrera.buscarCarrera(1);
+			Docente docente2 = CollectionsDocente.buscarDocente(2070);
+			Carrera carrera2 = CollectionsCarrera.buscarCarrera(1);
+			Docente docente3 = CollectionsDocente.buscarDocente(1990);
+			Carrera carrera3 = CollectionsCarrera.buscarCarrera(2);
+			Docente docente4 = CollectionsDocente.buscarDocente(2088);
+			Carrera carrera4 = CollectionsCarrera.buscarCarrera(3);
+			
+			materias.add(new Materia(2025, "Programacion Visual", "Segundo", (byte)12, "Virtual",docente , carrera ));
+			materias.add(new Materia(2032, "Programacion Estructurada", "Primero", (byte)14, "Virtual",docente2 , carrera2 ));
+			materias.add(new Materia(2045, "Algebra I", "Primero", (byte)15, "Virtual/Presencial",docente3 , carrera3 ));
+			materias.add(new Materia(2012, "Analisis Matematico I", "Primero", (byte)10, "Virtual",docente4 , carrera4 ));
 		}
 		return materias;
 	}
@@ -46,9 +58,10 @@ public class CollectionsMateria {
 					mat.setCurso(materia.getCurso());
 					mat.setCantHoras(materia.getCantHoras());
 					mat.setModalidad(materia.getModalidad());
-					mat.setDocente(null);
-					mat.setCarrera(null);
+					mat.setDocente(materia.getDocente());
+					mat.setCarrera(materia.getCarrera());
 					encontrado = true;
+					break;
 				}
 			}
 			if(!encontrado) {

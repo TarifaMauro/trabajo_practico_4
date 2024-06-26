@@ -70,4 +70,19 @@ public class CollectionsDocente {
 		}
 	}
 	
+	public static Docente findDocentebyId(int id) {
+		Docente docente = new Docente();
+		for (Docente d : docentes){
+			if(id == d.getLegajo()) {
+				docente = d;
+				break;
+			}
+		}
+		return docente;
+	}
+	
+	public static void setDocente(Docente docente) {
+		docente.setLegajo(docentes.get(docentes.size()-1).getLegajo());
+		docentes.add(docente);
+	}
 }
