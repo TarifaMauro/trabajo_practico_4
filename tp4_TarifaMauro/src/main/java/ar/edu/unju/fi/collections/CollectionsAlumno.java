@@ -45,7 +45,7 @@ public class CollectionsAlumno {
 		boolean encontrado = false;
 		try {
 			for( Alumno alu : alumnos) {
-				if( alu.getLu() == alumno.getLu() ) {
+				if( alu.getLu().equals(alumno.getLu()) ) {
 					alu.setNombre(alumno.getNombre());
 					alu.setApellido(alumno.getApellido());
 					alu.setDni(alumno.getDni());
