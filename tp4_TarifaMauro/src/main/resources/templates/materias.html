@@ -8,14 +8,14 @@
 			<div class="row">
 				<div class="col col -sm-12 fondo-form- p-5">
 					<div class="row mb-5">
-						<!-- <div th:if="${exito}" class="alert alert-success alert-dimissible fade show" role="alert">
+						<div th:if="${exito}" class="alert alert-success alert-dimissible fade show" role="alert">
 							<strong data-th-text="${mensaje}"></strong>
 							<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 						</div>
 						<div th:if="${!exito && mensaje != ''}" class="alert alert-danger alert-dimissible fade show" role="alert">
 							<strong data-th-text="${mensaje}"></strong>
 							<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-						</div> -->
+						</div>
 						<div class="d-grid gap-2 d-md-flex justify-content md-end mb-2">
 							<a class="btn btn-primary" data-th-href="@{/materia/nueva}" role="button">Nueva Materia</a>
 						</div>
@@ -27,18 +27,23 @@
 							      <th scope="col">Curso</th>
 							      <th scope="col">Cantidad de Horas</th>
 							      <th scope="col">Modalidad</th>
+							      <th scope="col">Docente</th>
+							      <th scope="col">Carrera</th>
+							      <th scope="col">Opciones</th>
 							    </tr>
 							</thead>
 							<tbody>
-							    <tr data-th-each="mat: ${materias}">
+							    <tr data-th-each="mat : ${materias}">
 							      <td data-th-text="${mat.codigo}"></td>
 							      <td data-th-text="${mat.nombre}"></td>
 							      <td data-th-text="${mat.curso}"></td>
-							      <td data-th-text="${mat.cantHoras}" ></td>
+							      <td data-th-text="${mat.cantHoras} + ' Horas'" ></td>
 							      <td data-th-text="${mat.modalidad}" ></td>
+							      <td data-th-text="${mat.docente.apellido} + ', ' + ${mat.docente.nombre}"></td>
+								  <td data-th-text="${mat.carrera.nombre}"></td>
 							      <td>
 							      	<a class="btn btn-warning" data-th-href="@{/materia/modificar/}+${mat.codigo}" role="button">Editar</a>
-							      	<button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"
+							      	<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"
 							      		th:data-codigoMat="${mat.codigo}">Eliminar</button>
 							      </td>
 							    </tr>
