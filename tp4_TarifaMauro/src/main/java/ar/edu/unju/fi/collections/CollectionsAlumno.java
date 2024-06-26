@@ -19,11 +19,11 @@ public class CollectionsAlumno {
 	public static List<Alumno> getAlumnos(){
 		if( alumnos.isEmpty() ) {
 			alumnos.add(new Alumno(40440760, "Mauro", "Tarifa", "Dastan@gmail.com", "+543883310671",LocalDate.of(1997, 10, 19),
-					"Virrey Cisneros", 5005));
+					"Virrey Cisneros","APU005005"));
 			alumnos.add(new Alumno(43443760, "Bigote", "Tarifa", "Bigote@gmail.com", "+543883414661",LocalDate.of(2005, 7, 3),
-					"Virrey Cisneros", 5008));
+					"Virrey Cisneros","APU004400"));
 			alumnos.add(new Alumno(39339997, "Tino", "Tarifa", "Tino@gmail.com", "+543885336671",LocalDate.of(1998, 11, 20),
-					"Virrey Cisneros", 5010));
+					"Virrey Cisneros", "APU003890"));
 
 		}
 		return alumnos;
@@ -35,7 +35,7 @@ public class CollectionsAlumno {
 	public static void eliminarAlumno(int luAlumno) {
 		Iterator<Alumno> iterator = alumnos.iterator();
 		while( iterator.hasNext() ) {
-			if( iterator.next().getLu() == luAlumno ) {
+			if( iterator.next().getLu().equals(luAlumno) ) {
 				iterator.remove();
 			}
 		}
@@ -66,8 +66,8 @@ public class CollectionsAlumno {
 			
 	}
 	
-	public static Alumno buscarAlumno(int lu) {
-		Predicate<Alumno> filterCodigo = c -> c.getLu() == lu;
+	public static Alumno buscarAlumno(String lu) {
+		Predicate<Alumno> filterCodigo = c -> c.getLu().equals(lu);
 		Optional<Alumno> alumno = alumnos.stream().filter(filterCodigo).findFirst();
 		if ( alumno.isPresent() ) {
 			return alumno.get();
