@@ -25,14 +25,17 @@ public class DocenteController {
 	public String getDocentePage(Model model) {
 		model.addAttribute("docentes", CollectionsDocente.getDocentes());
 		model.addAttribute("titulo", "Docentes");
+		model.addAttribute("exito", false);
+		model.addAttribute("mensaje","");
 		return "docentes";
 	}
 	
 	@GetMapping("/nuevo")
 	public String getDocenteNuevoPage(Model model) {
+		boolean edicion = false;
 		model.addAttribute("docente", docente);
 		model.addAttribute("titulo", "Nuevo Docente");
-		model.addAttribute("edicion", false);
+		model.addAttribute("edicion", edicion);
 		return "docente";
 	}
 	
